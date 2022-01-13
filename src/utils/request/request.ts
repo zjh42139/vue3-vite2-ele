@@ -57,7 +57,7 @@ class request {
       }
       this.instance
         .request<any, AxiosResponse<T>>(config)
-        .then((res: AxiosResponse<T>) => {
+        .then((res) => {
           if (config.interceptors?.responseInterceptor) {
             res = config.interceptors.responseInterceptor(res);
           }
