@@ -1,4 +1,3 @@
-import { vue } from '@vitejs/plugin-vue';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [

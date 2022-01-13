@@ -14,28 +14,23 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '@/store'
+  import { useMainStore } from '@/store';
 
-const mainStore = useMainStore()
+  const mainStore = useMainStore();
 
-const updateName = () => {
-  // $patch 修改 store 中的数据
-  mainStore.$patch({
-    name: '名称被修改了,nameLength也随之改变了'
-  })
-}
+  const updateName = () => {
+    // $patch 修改 store 中的数据
+    mainStore.$patch({
+      name: '名称被修改了,nameLength也随之改变了',
+    });
+  };
 </script>
 
-
-
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $test-color;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
 </style>
-

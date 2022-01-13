@@ -39,7 +39,7 @@ module.exports = {
     'no-var': 'error',
     'prettier/prettier': 'error',
     // 禁止出现console
-    'no-console': 'warn',
+    // 'no-console': 'warn',
     // 禁用debugger
     'no-debugger': 'warn',
     // 禁止出现重复的 case 标签
@@ -90,8 +90,6 @@ module.exports = {
     'array-bracket-spacing': 'warn',
     // 强制在代码块中使用一致的大括号风格
     'brace-style': 'warn',
-    // 强制使用骆驼拼写法命名约定
-    camelcase: 'warn',
     // 强制使用一致的缩进
     indent: 'off',
     // 强制在 JSX 属性中一致地使用双引号或单引号
@@ -119,7 +117,7 @@ module.exports = {
     // 禁止出现多行空行
     'no-multiple-empty-lines': 'warn',
     // 禁止出现;
-    semi: ['warn', 'never'],
+    // semi: ['warn', 'never'],
     // 强制在块之前使用一致的空格
     'space-before-blocks': 'warn',
     // 强制在 function的左括号之前使用一致的空格
@@ -136,7 +134,6 @@ module.exports = {
     'switch-colon-spacing': 'warn',
     // 强制箭头函数的箭头前后使用一致的空格
     'arrow-spacing': 'warn',
-    'no-var': 'warn',
     'prefer-const': 'warn',
     'prefer-rest-params': 'warn',
     'no-useless-escape': 'warn',
