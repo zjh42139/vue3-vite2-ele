@@ -15,6 +15,7 @@
     "less": "^4.1.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.9",
+    "pinia-plugin-persist": "^0.0.92",
     "vite-plugin-windicss": "^1.6.2",
     "vue": "^3.2.25",
     "vue-router": "4"

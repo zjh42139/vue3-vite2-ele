@@ -1,6 +1,11 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 html,
 body,
 #app {
-  width: 100%;
+  @apply h-full;
   height: 100%;
 }

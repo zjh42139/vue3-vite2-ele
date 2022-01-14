@@ -1,3 +1,4 @@
+import localCache from '@/utils/local-cache';
 import request from './request';
 
 const defaultRequest = new request({
@@ -5,10 +6,10 @@ const defaultRequest = new request({
   timeout: 10000,
   interceptors: {
     requestInterceptor: (config) => {
-      const token = '123456';
-      // if (token) {
-      //   config.headers.Authorization = `Bearer ${token}`;
-      // }
+      const token = localCache.get('token');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
       console.log('请求成功的拦截');
       return config;
     },

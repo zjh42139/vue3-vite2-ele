@@ -11,28 +11,3 @@ app.use(router);
 app.use(createPinia());
 
 app.mount('#app');
-
-import request from '@/utils/request';
-console.log(request);
-interface resType {
-  data: any;
-  returnCode: string;
-  success: boolean;
-}
-request
-  .get<resType>({
-    url: '/home/multidata',
-    interceptors: {
-      requestInterceptor: (config) => {
-        console.log('111');
-        return config;
-      },
-      responseInterceptor: (res) => {
-        console.log('222');
-        return res;
-      },
-    },
-  })
-  .then((res) => {
-    console.log(res);
-  });

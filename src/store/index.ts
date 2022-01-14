@@ -1,19 +1,12 @@
-import { defineStore } from 'pinia';
+import type { App } from 'vue';
+import { createPinia } from 'pinia';
+import piniaPluginPersist from 'pinia-plugin-persist';
 
-export const useMainStore = defineStore({
-  id: 'base',
-  state: () => ({
-    name: '超级管理员',
-  }),
-  // getters
-  getters: {
-    nameLength: (state) => state.name.length,
-  },
-  actions: {
-    async insertPost(data: string) {
-      // 可以做异步
-      // await doAjaxRequest(data);
-      this.name = data;
-    },
-  },
-});
+const store = createPinia();
+store.use(piniaPluginPersist);
+
+export function setupStore(app: App<Element>) {
+  app.use(store);
+}
+
+export { store };
