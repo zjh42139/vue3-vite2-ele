@@ -1,6 +1,7 @@
 import request from '@/utils/request';
 
-import { IAccount, IDataType, ILoginResult, IMenu } from './type';
+import { IAccount, ILoginResult } from './type';
+import { IDataType } from '../types';
 
 enum LoginAPI {
   AccountLogin = '/login',
@@ -22,7 +23,7 @@ export function requestUserInfoById(id: number) {
 }
 
 export function requestUserMenusByRoleId(id: number) {
-  return request.get<IDataType<Array<IMenu>>>({
+  return request.get<IDataType>({
     url: LoginAPI.UserMenus + id + '/menu',
   });
 }

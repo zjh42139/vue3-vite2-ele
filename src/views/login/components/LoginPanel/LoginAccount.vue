@@ -1,27 +1,20 @@
 <template>
-  <el-form ref="loginFormRef" :model="loginForm" status-icon :rules="rules" label-width="100px">
-    <el-form-item label="username" prop="username">
-      <el-input v-model="loginForm.username" autocomplete="off"></el-input>
+  <el-form ref="loginFormRef" :model="loginForm" :rules="rules" label-width="60px">
+    <el-form-item label="账号" prop="username">
+      <el-input v-model="loginForm.username"></el-input>
     </el-form-item>
-    <el-form-item label="password" prop="password">
-      <el-input v-model="loginForm.password" type="password" autocomplete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="remember" prop="remember">
-      <el-checkbox v-model="loginForm.remember" size="large"></el-checkbox>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="handleLogin">Submit</el-button>
-      <el-button @click="resetForm(loginFormRef)">Reset</el-button>
+    <el-form-item label="密码" prop="password">
+      <el-input v-model="loginForm.password" type="password" show-password></el-input>
     </el-form-item>
   </el-form>
 </template>
 
 <script lang="ts" setup>
   import { ref, reactive } from 'vue';
-  import { resetForm, submitForm } from './utlis';
   import type { ElForm } from 'element-plus';
   import { useUserStore } from '@/store/modules/user';
   import localCache from '@/utils/local-cache';
+  import { rules } from './config';
 
   const userStore = useUserStore();
 
@@ -33,7 +26,7 @@
     remember: true,
   });
 
-  const handleLogin = () => {
+  const loginAction = () => {
     loginFormRef.value?.validate((valid) => {
       if (valid) {
         if (loginForm.remember) {
@@ -51,31 +44,7 @@
       }
     });
   };
-
-  const rules = {
-    username: [
-      {
-        required: true,
-        message: '用户名是必传内容',
-        trigger: 'blur',
-      },
-      {
-        pattern: /^[a-z0-9]{5,10}$/,
-        message: '用户名必须是5-10个字母或者数字',
-        trigger: 'blur',
-      },
-    ],
-    password: [
-      {
-        required: true,
-        message: '密码是必传内容',
-        trigger: 'blur',
-      },
-      {
-        pattern: /^[a-z0-9]{6,}$/,
-        message: '用户名必须是6位以上的字母或者数字',
-        trigger: 'blur',
-      },
-    ],
-  };
+  defineExpose({
+    loginAction,
+  });
 </script>

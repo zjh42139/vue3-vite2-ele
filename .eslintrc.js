@@ -143,6 +143,7 @@ module.exports = {
     'no-extra-boolean-cast': 'warn',
     'no-case-declarations': 'warn',
     'no-async-promise-executor': 'warn',
+    'vue/multi-word-component-names': 'off',
   },
   globals: {
     defineProps: 'readonly',

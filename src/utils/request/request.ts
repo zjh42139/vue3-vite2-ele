@@ -50,7 +50,7 @@ class request {
     );
   }
 
-  request<T>(config: RequestConfig): Promise<T> {
+  request<T = any>(config: RequestConfig): Promise<T> {
     return new Promise((resolve, reject) => {
       if (config.interceptors?.requestInterceptor) {
         config = config.interceptors.requestInterceptor(config);
@@ -69,19 +69,19 @@ class request {
     });
   }
 
-  get<T>(config: RequestConfig): Promise<T> {
+  get<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'GET' });
   }
 
-  post<T>(config: RequestConfig): Promise<T> {
+  post<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'POST' });
   }
 
-  delete<T>(config: RequestConfig): Promise<T> {
+  delete<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'DELETE' });
   }
 
-  put<T>(config: RequestConfig): Promise<T> {
+  put<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'PUT' });
   }
 }

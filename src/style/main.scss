@@ -1,11 +1,5 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-
 html,
 body,
 #app {
-  @apply h-full;
-  height: 100%;
+  @apply h-full w-full;
 }
