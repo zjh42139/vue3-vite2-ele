@@ -8,11 +8,17 @@
     </slot>
   </div>
 
-  <el-table :data="tableData" style="width: 100%" border @selection-change="handleSelectionChange">
+  <el-table
+    :data="tableData"
+    style="width: 100%"
+    border
+    v-bind="childrenProps"
+    @selection-change="handleSelectionChange"
+  >
     <el-table-column v-if="showCheckColumn" align="center" type="selection" width="60"></el-table-column>
     <el-table-column v-if="showIndexColumn" label="序号" align="center" type="index" width="80"></el-table-column>
     <template v-for="column in columnProps" :key="column.prop">
-      <el-table-column v-bind="column" align="center">
+      <el-table-column v-bind="column" align="center" show-overflow-tooltip>
         <template #default="scope">
           <slot :name="column.slotName" :row="scope.row">{{ scope.row[column.prop] }}</slot>
         </template>
@@ -20,7 +26,7 @@
     </template>
   </el-table>
 
-  <div class="table-footer">
+  <div v-if="showPagination" class="table-footer">
     <slot name="footer">
       <el-pagination
         :current-page="pageQuery.currentPage"
@@ -71,6 +77,14 @@
     showCheckColumn: {
       type: Boolean,
       default: false,
+    },
+    showPagination: {
+      type: Boolean,
+      default: true,
+    },
+    childrenProps: {
+      type: Object,
+      default: () => ({}),
     },
   });
 

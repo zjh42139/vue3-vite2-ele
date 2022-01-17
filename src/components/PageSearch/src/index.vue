@@ -1,19 +1,21 @@
 <template>
-  <base-form v-bind="formConfig" ref="formRef" v-model="formData">
-    <!-- <template #header>
+  <div class="p-5">
+    <base-form v-bind="formConfig" ref="formRef" v-model="formData">
+      <!-- <template #header>
       <h1>title</h1>
     </template> -->
-    <template #footer>
-      <div class="text-right">
-        <el-button @click="handleResetClick">
-          <el-icon class="mr-1.5"> <refresh /> </el-icon>重置
-        </el-button>
-        <el-button type="primary" @click="handleSearchClick">
-          <el-icon class="mr-1.5"> <search /> </el-icon>搜索
-        </el-button>
-      </div>
-    </template>
-  </base-form>
+      <template #footer>
+        <div class="text-right">
+          <el-button @click="handleResetClick">
+            <el-icon class="mr-1.5"> <refresh /> </el-icon>重置
+          </el-button>
+          <el-button type="primary" @click="handleSearchClick">
+            <el-icon class="mr-1.5"> <search /> </el-icon>搜索
+          </el-button>
+        </div>
+      </template>
+    </base-form>
+  </div>
 </template>
 
 <script setup lang="ts">

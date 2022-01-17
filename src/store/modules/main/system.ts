@@ -7,10 +7,16 @@ interface ISystemState {
   userCount: number;
   roleList: any[];
   roleCount: number;
+  goodsList: any[];
+  goodsCount: number;
+  menuList: any[];
+  menuCount: number;
 }
 const requestUrlMap = {
   user: '/users/list',
   role: '/role/list',
+  goods: '/goods/list',
+  menu: '/menu/list',
 };
 export const useSystemStore = defineStore({
   id: 'system',
@@ -20,6 +26,10 @@ export const useSystemStore = defineStore({
       userCount: 0,
       roleList: [],
       roleCount: 0,
+      goodsList: [],
+      goodsCount: 0,
+      menuList: [],
+      menuCount: 0,
     };
   },
   getters: {
@@ -48,6 +58,18 @@ export const useSystemStore = defineStore({
     },
     changeRoleCount(roleCount: number) {
       this.roleCount = roleCount;
+    },
+    changeGoodsList(goodsList: any[]) {
+      this.goodsList = goodsList;
+    },
+    changeGoodsCount(goodsCount: number) {
+      this.goodsCount = goodsCount;
+    },
+    changeMenuList(menuList: any[]) {
+      this.menuList = menuList;
+    },
+    changeMenuCount(menuCount: number) {
+      this.menuCount = menuCount;
     },
   },
   persist: {

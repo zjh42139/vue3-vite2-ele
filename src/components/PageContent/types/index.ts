@@ -4,4 +4,4 @@ export interface ITableConfig {
   showCheckColumn: boolean;
   title?: string;
 }
-export type IPageName = 'user' | 'role';
+export type IPageName = 'user' | 'role' | 'goods' | 'menu';

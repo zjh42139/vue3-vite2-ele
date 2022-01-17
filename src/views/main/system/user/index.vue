@@ -1,15 +1,11 @@
 <template>
   <div class="user">
-    <div class="search p-5">
-      <page-search
-        :form-config="searchFormConfig"
-        @reset-query="handleQueryReset"
-        @search-on-query-change="hanldeSearch"
-      ></page-search>
-    </div>
-    <div class="content p-5">
-      <page-content ref="pageContentRef" :table-config="contentTableConfig" :page-name="'user'"></page-content>
-    </div>
+    <page-search
+      :form-config="searchFormConfig"
+      @reset-query="handleQueryReset"
+      @search-on-query-change="hanldeSearch"
+    ></page-search>
+    <page-content ref="pageContentRef" :table-config="contentTableConfig" :page-name="'user'"></page-content>
   </div>
 </template>
 
