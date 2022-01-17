@@ -135,7 +135,7 @@
       }
     }
 
-    ::v-deep .el-sub-menu__title {
+    :deep(.el-sub-menu__title)  {
       background-color: #001529 !important;
     }
 
