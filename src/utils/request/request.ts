@@ -84,6 +84,10 @@ class request {
   put<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: 'PUT' });
   }
+
+  patch<T = any>(config: RequestConfig): Promise<T> {
+    return this.request({ ...config, method: 'PATCH' });
+  }
 }
 
 export default request;

@@ -8,7 +8,7 @@
       @selection-change="handleSelectionChange"
     >
       <template #headerOperation>
-        <el-button v-if="allowCreate" type="primary">
+        <el-button v-if="allowCreate" type="primary" @click="handleAddClick">
           <el-icon> <plus /> </el-icon>新建用户
         </el-button>
       </template>
@@ -22,11 +22,11 @@
       <template #updateAt="scope">
         <strong>{{ $filters.formateTime(scope.row.updateAt) }}</strong>
       </template>
-      <template #operation>
-        <el-button v-if="allowUpdate" size="small" type="text">
+      <template #operation="scope">
+        <el-button v-if="allowUpdate" size="small" type="text" @click="handleEditClick(scope.row)">
           <el-icon> <edit /> </el-icon>编辑
         </el-button>
-        <el-button v-if="allowDelete" size="small" type="text">
+        <el-button v-if="allowDelete" size="small" type="text" @click="handleDeleteClick(scope.row)">
           <el-icon> <delete /> </el-icon>删除
         </el-button>
       </template>
@@ -37,7 +37,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import BaseTable from '@/components/BaseTable/index';
   import { Edit, Delete, Plus } from '@element-plus/icons-vue';
   import { computed, PropType, ref, watch } from 'vue';
@@ -47,7 +47,7 @@
   import { usePermission } from '@/hooks/usePermission';
 
   const pageQuery = ref<IPageQuery>({
-    currentPage: 0,
+    currentPage: 1,
     pageSize: 10,
   });
 
@@ -61,6 +61,7 @@
       required: true,
     },
   });
+  const emit = defineEmits(['addClick', 'editClick']);
 
   const systemStore = useSystemStore();
 
@@ -74,7 +75,7 @@
       systemStore.getPageListAction({
         pageName: props.pageName,
         queryInfo: {
-          offset: pageQuery.value.currentPage * pageQuery.value.pageSize,
+          offset: (pageQuery.value.currentPage - 1) * pageQuery.value.pageSize,
           size: pageQuery.value.pageSize,
           ...query,
         },
@@ -91,6 +92,18 @@
   };
 
   const dynamicSlots = props.tableConfig.columnProps.filter((column) => column.isDynamicSlot);
+
+  const handleDeleteClick = (row: any) => {
+    const systemStore = useSystemStore();
+    systemStore.deletePageItemAction({ pageName: props.pageName, id: row.id });
+  };
+
+  const handleAddClick = () => {
+    emit('addClick');
+  };
+  const handleEditClick = (item: any) => {
+    emit('editClick', item);
+  };
 
   defineExpose({
     getPageData,

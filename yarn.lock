@@ -1092,6 +1092,11 @@ deep-is@^0.1.3:
   resolved "https://registry.nlark.com/deep-is/download/deep-is-0.1.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdeep-is%2Fdownload%2Fdeep-is-0.1.4.tgz#a6f2dce612fadd2ef1f519b73551f17e85199831"
   integrity sha1-pvLc5hL63S7x9Rm3NVHxfoUZmDE=
 
+default-passive-events@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.nlark.com/default-passive-events/download/default-passive-events-2.0.0.tgz#79b1aa67becbaab38b718469b5480fef92eda649"
+  integrity sha1-ebGqZ77LqrOLcYRptUgP75Ltpkk=
+
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.nlark.com/dir-glob/download/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"

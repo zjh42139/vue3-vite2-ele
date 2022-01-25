@@ -48,7 +48,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed } from 'vue';
   import Logo from '@/assets/img/logo.svg';
   import { useUserStore } from '@/store/modules/user';
@@ -135,7 +135,7 @@
       }
     }
 
-    :deep(.el-sub-menu__title)  {
+    :deep(.el-sub-menu__title) {
       background-color: #001529 !important;
     }
 

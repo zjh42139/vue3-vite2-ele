@@ -6,7 +6,7 @@
   </el-breadcrumb>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { PropType } from 'vue';
   import { IBreadcrumb } from '../types';
 

@@ -20,7 +20,7 @@
   </el-dropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import router from '@/router';
   import { ArrowDown, CircleClose } from '@element-plus/icons-vue';
   import { useUserStore } from '@/store/modules/user';

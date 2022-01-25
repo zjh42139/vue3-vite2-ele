@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Layout from '@/layout/index.vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import localCache from '@/utils/local-cache';
 import { firstMenu } from '@/utils/map-menus';
 

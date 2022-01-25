@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed } from 'vue';
   import SideBar from './SideBar/index.vue';
   import NavBar from './NavBar/index.vue';
@@ -46,6 +46,7 @@
     height: calc(100% - 48px);
 
     .page-info {
+      // height: 100%;
       background-color: #fff;
       border-radius: 5px;
     }

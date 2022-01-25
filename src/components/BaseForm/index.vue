@@ -7,7 +7,7 @@
       <el-row>
         <template v-for="item in formItems" :key="item.label">
           <el-col v-bind="columnLayout">
-            <el-form-item :label="item.label" :rules="item.rules" class="px-10 py-2.5">
+            <el-form-item v-if="!item.hidden" :label="item.label" :rules="item.rules" class="px-10 py-2.5">
               <template v-if="['input', 'password'].includes(item.type)">
                 <el-input
                   v-model="formData[item.field]"
@@ -33,7 +33,13 @@
                 </el-select>
               </template>
               <template v-else-if="item.type === 'datePicker'">
-                <el-date-picker v-model="formData[item.field]" type="daterange" v-bind="item.config" class="w-full">
+                <el-date-picker
+                  v-model="formData[item.field]"
+                  type="daterange"
+                  v-bind="item.config"
+                  class="w-full"
+                  format="YYYY/MM/DD"
+                >
                 </el-date-picker>
               </template>
             </el-form-item>
@@ -47,7 +53,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { PropType, ref, watch } from 'vue';
   import { IColumnLayout, IFormItem } from './type';
   import type { ElForm } from 'element-plus';
@@ -92,8 +98,12 @@
   const setFormData = (val: Object) => {
     formData.value = val;
   };
+  const resetFormData = () => {
+    formRef.value?.resetFields();
+  };
   defineExpose({
     setFormData,
+    resetFormData,
   });
 </script>
 

@@ -10,17 +10,20 @@ export interface IFormItem {
   type: IFromType;
   label: string;
   rules?: any[];
+
   placeholder?: string;
   options?: IOption[];
   config?: any;
+  hidden?: boolean;
 }
 
 export interface IColumnLayout {
-  xl: number;
-  lg: number;
-  md: number;
-  sm: number;
-  xs: number;
+  xl?: number;
+  lg?: number;
+  md?: number;
+  sm?: number;
+  xs?: number;
+  span?: number;
 }
 
 export interface IForm {

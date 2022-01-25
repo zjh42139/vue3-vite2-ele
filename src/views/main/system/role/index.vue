@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import PageSearch from '@/components/PageSearch';
   import PageContent from '@/components/PageContent';
   import { searchFormConfig } from './config/search.config';

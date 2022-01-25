@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import BaseForm from '@/components/BaseForm/index.vue';
   import { ref, watch } from 'vue';
   import { Refresh, Search } from '@element-plus/icons-vue';

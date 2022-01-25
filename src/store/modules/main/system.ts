@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { getPageList } from '@/api/main/system';
+import { createPageItem, deletePageItem, editPageItem, getPageList } from '@/api/main/system';
 import { IPageName } from '@/components/PageContent/types';
 
 interface ISystemState {
@@ -14,6 +14,7 @@ interface ISystemState {
 }
 const requestUrlMap = {
   user: '/users/list',
+  users: '/users/list',
   role: '/role/list',
   goods: '/goods/list',
   menu: '/menu/list',
@@ -47,10 +48,57 @@ export const useSystemStore = defineStore({
       this[`change${changePageName}List`](list);
       this[`change${changePageName}Count`](totalCount);
     },
+    async deletePageItemAction(payload: any) {
+      let { pageName, id } = payload;
+      if (pageName === 'user') {
+        pageName = 'users';
+      }
+      const pageUrl = `/${pageName}/${id}`;
+      await deletePageItem(pageUrl);
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10,
+        },
+      });
+    },
+    async createPageItemAction(payload: any) {
+      const { pageName, formData } = payload;
+      const requestUrl = `/${pageName}`;
+      await createPageItem(requestUrl, formData);
+
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10,
+        },
+      });
+    },
+    async editPageItemAction(payload: any) {
+      const { pageName, formData, id } = payload;
+      const requestUrl = `/${pageName}/${id}`;
+      await editPageItem(requestUrl, formData);
+
+      this.getPageListAction({
+        pageName,
+        queryInfo: {
+          offset: 0,
+          size: 10,
+        },
+      });
+    },
     changeUserList(userList: any[]) {
       this.userList = userList;
     },
     changeUserCount(userCount: number) {
+      this.userCount = userCount;
+    },
+    changeUsersList(userList: any[]) {
+      this.userList = userList;
+    },
+    changeUsersCount(userCount: number) {
       this.userCount = userCount;
     },
     changeRoleList(roleList: any[]) {

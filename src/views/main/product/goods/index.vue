@@ -13,7 +13,7 @@
   </page-content>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import PageContent from '@/components/PageContent';
   import { contentTableConfig } from './config/content.config';
 </script>

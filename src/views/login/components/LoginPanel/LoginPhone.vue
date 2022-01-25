@@ -12,7 +12,7 @@
   </el-form>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { reactive } from 'vue';
 
   const phone = reactive({
