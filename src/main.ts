@@ -14,11 +14,3 @@ setupProperties(app);
 app.use(router);
 
 app.mount('#app');
-
-document.addEventListener(
-  'mousewheel',
-  () => {
-    console.log(123);
-  },
-  { passive: true },
-);
